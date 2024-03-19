@@ -15,12 +15,11 @@ class LoginController extends Controller
     }
     public function __invoke(LoginRequest $request)
     {
-
         if (Auth::attempt($request->only('un_id', 'password'))) {
             $request->session()->regenerate();
-            return response()->json(['redirectTo' => view('components.dashboard')]);
+            session(['success' => 'You have logged in successfully As '.Auth::user()->type]);
+            return response()->json(['redirectTo' => route('dashboard.index')]);
         }
-
         return response()->json(['error' => 'The provided credentials do not match our records.'], 422);
     }
 

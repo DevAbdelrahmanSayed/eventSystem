@@ -13,7 +13,7 @@
 
     </head>
     <body>
-
+    @include('components.notf')
     <div class="flex items-center justify-center min-h-screen bg-[#1E1F25]">
         <div
             class="relative flex flex-col m-6 space-y-8 bg-[#323741] border-2 border-gray-600 shadow-2xl rounded-2xl md:flex-row md:space-y-0">
@@ -24,9 +24,9 @@
                     Sign in to your account
                 </h1>
                 <form class="space-y-4 md:space-y-6" id="loginForm" action="#">
-                    <div class="relative">
-                        <input type="text" name="un_id" id="un_id" class="form-input" placeholder="Enter your ID" />
-                        <p id="un_id_error" class="error-message" style="display: none;"></p>
+                    <div class="py-4">
+                        <label for="id" class="block mb-2 text-sm font-medium text-[#FFFFFF] dark:text-white">ID</label>
+                        <input type="text" name="un_id" placeholder="Enter your ID" class="bg-[#1E1F25] border border-[#424650] text-gray-900 sm:text-sm rounded-lg focus:ring-[#827FFF] focus:border-[#827FFF] block w-full p-2.5 dark:bg-gray-700 dark:border-[#424650] placeholder-[#FFFFFF]  dark:text-white  dark:focus:border-[#7879C5]"  required="">
                     </div>
 
                     <div class="py-4">
@@ -38,7 +38,7 @@
                         <input id="remember" aria-describedby="remember" type="checkbox" class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-[#7879C5]  dark:focus:ring-[#7879C5]" >
                         <span class="text-md text-white">Remember me</span>
                     </div>
-                    <a href="index8.html" class="text-sm font-medium text-white hover:underline dark:text-primary-500">Forgot password?</a>
+                    <a href="{{route('reset-email')}}" class="text-sm font-medium text-white hover:underline dark:text-primary-500">Forgot password?</a>
                 </div>
                 <button type="submit" class="text-white bg-[#827FFF]  font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:[#7879C5]  focus:outline-none dark:focus:ring-[#7879C5] w-full">Log in</button>
                 </form>
@@ -60,8 +60,7 @@
                 <img
                     src="{{asset('assets/image-removebg.png')}}"
                     alt="img"
-                    class="w-[550px] h-550px hidden rounded-r-2xl md:block object-cover mt-12 shadow-lg"
-                />
+                    class="w-[550px] h-550px hidden rounded-r-2xl md:block object-cover mt-12 shadow-lg"/>
             </div>
         </div>
     </div>
@@ -70,7 +69,6 @@
         $(document).ready(function() {
             $('#loginForm').on('submit', function(e) {
                 e.preventDefault();
-
                 // Clear previous errors
                 $('.is-invalid').removeClass('is-invalid');
                 $('.error-message').remove();
