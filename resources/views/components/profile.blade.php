@@ -23,6 +23,7 @@
         </div>
     </div>
 </section>
+
 <section class="bg-[#2A2D35] dark:bg-[#2A2D35]">
     <div class="py-8 px-4 mx-auto max-w-2xl lg:py-16 pl-[150px]">
         <div class="relative">
@@ -87,8 +88,6 @@
         </form>
     </div>
 </section>
-
-
 
 
 
